@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactDOMServer from 'react-dom/server';
+import React from 'react/dist/react.min';
+import ReactDOM from 'react-dom/dist/react-dom.min';
+import ReactDOMServer from 'react-dom/dist/react-dom-server.min';
 import hypernova, { serialize, load } from 'hypernova';
 
 export const renderReact = (name, component) => hypernova({
