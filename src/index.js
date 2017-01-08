@@ -1,6 +1,15 @@
-import React from 'react/dist/react.min';
-import ReactDOM from 'react-dom/dist/react-dom.min';
-import ReactDOMServer from 'react-dom/dist/react-dom-server.min';
+let React, ReactDOM, ReactDOMServer;
+
+if (process.env.NODE_ENV === 'production') {
+    React = require('react/dist/react.min');
+    ReactDOM = require('react-dom/dist/react-dom.min');
+    ReactDOMServer = require('react-dom/dist/react-dom-server.min');
+} else {
+    React = require('react');
+    ReactDOM = require('react-dom');
+    ReactDOMServer = require('react-dom/server');
+}
+
 import hypernova, { serialize, load } from 'hypernova';
 
 export const renderReact = (name, component) => hypernova({
