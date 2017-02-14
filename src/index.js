@@ -1,14 +1,10 @@
-let React, ReactDOM, ReactDOMServer;
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-if (process.env.NODE_ENV === 'production') {
-    React = require('react/dist/react.min');
-    ReactDOM = React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    ReactDOMServer = React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-} else {
-    React = require('react');
-    ReactDOM = require('react-dom');
-    ReactDOMServer = require('react-dom/server');
-}
+import {ReactDomServer as ProductionReactDomServer} from 'react/dist/react.min';
+import {ReactDomServer as DevelopmentReactDomServer} from 'react-dom/server';
+
+const ReactDOMServer = process.env.NODE_ENV === 'production' ? ProductionReactDomServer : DevelopmentReactDomServer;
 
 import hypernova, { load } from 'hypernova';
 
